@@ -5,14 +5,14 @@ GET http://localhost:3000/users
 GET http://localhost:3000/users/2
 
 ### DELETE ONE USER
-DELETE http://localhost:3000/users/2
+DELETE http://localhost:3000/users/3
 
 ### UPDATE USER
-PATCH http://localhost:3000/users/1
+PATCH http://localhost:3000/users/3
 Content-Type: application/json
 
 {
-    "name": "hossam"
+    "name": "hossam9"
 }
 
 ### CREATE USER

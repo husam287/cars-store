@@ -23,11 +23,14 @@ export class UsersService {
     return this.usersRepo.findOneBy({ id });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return this.usersRepo.update({ id }, updateUserDto);
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    const user = await this.findOne(id);
+    Object.assign(user, updateUserDto);
+    return this.usersRepo.save(user);
   }
 
-  remove(id: number) {
-    return this.usersRepo.delete({ id });
+  async remove(id: number) {
+    const user = await this.findOne(id);
+    return this.usersRepo.remove(user);
   }
 }
