@@ -1,0 +1,26 @@
+### GET ALL
+GET http://localhost:3000/users
+
+### GET ONE USER
+GET http://localhost:3000/users/2
+
+### DELETE ONE USER
+DELETE http://localhost:3000/users/2
+
+### UPDATE USER
+PATCH http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+    "name": "hossam"
+}
+
+### CREATE USER
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "sample",
+    "email": "hh@hh.com",
+    "password": "dkdjd"
+}
