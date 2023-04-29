@@ -1,3 +1,4 @@
+import { Exclude, Expose } from 'class-transformer';
 import {
   AfterInsert,
   AfterUpdate,
@@ -5,6 +6,11 @@ import {
   Entity,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+
+export const USER_GROUPS = {
+  retriveOnly: 'GROUP_RETRIEVE_USER',
+  adminOnly: 'GROUP_ADMINS',
+};
 
 @Entity()
 export class User {
@@ -15,9 +21,11 @@ export class User {
   name: string;
 
   @Column({ nullable: true })
+  @Expose({ groups: [USER_GROUPS.adminOnly] })
   password: string;
 
   @Column()
+  @Expose({ groups: [USER_GROUPS.retriveOnly] })
   email: string;
 
   @AfterInsert()
